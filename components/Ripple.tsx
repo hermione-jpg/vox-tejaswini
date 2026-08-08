@@ -2,7 +2,7 @@ export default function Ripple() {
   return (
     <div
       aria-hidden
-      className="relative mx-auto flex h-64 w-64 md:h-80 md:w-80 items-center justify-center"
+      className="relative mx-auto flex h-16 w-16 md:h-12 md:w-12 items-center justify-center"
     >
       <span className="ripple-ring" style={{ animationDelay: "0s" }} />
       <span className="ripple-ring" style={{ animationDelay: "1.15s" }} />
