@@ -19,8 +19,8 @@ Using the exact hex values pulled from Figma:
 
 | Token | Hex | Used for |
 |---|---|---|
-| `paper` (Color 5) | `#DAE6ED` | Main page background |
-| `card` (Color 6) | `#F7FAFB` | Sidebar, cards, quote blocks |
+| `paper` (Color 5) | `#F7FAFB` | Main page background |
+| `card` (Color 6) | `#DAE6ED` | Sidebar, cards, quote blocks |
 | `ink` (Color 3) | `#364D5C` | Headings — darkest text |
 | `ink-soft` (Color 2) | `#51748B` | Body copy |
 | `ink-faint` / `accent` (Color 1) | `#6C9BB9` | Labels, links, hover states |
