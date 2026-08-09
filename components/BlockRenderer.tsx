@@ -30,20 +30,6 @@ export default function BlockRenderer({
           );
         }
 
-        if (block.type === "image") {
-          return (
-            <figure
-              key={i}
-              className="flex justify-center py-4"
-            >
-              <img
-                src={block.src}
-                alt={block.alt}
-                className="max-h-[440px] w-auto max-w-full object-contain"
-              />
-            </figure>
-          );
-        }
 
         if (block.type === "list") {
           return (

@@ -1,9 +1,9 @@
-﻿// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// CASE STUDIES â€” EDITABLE CONTENT
+// ─────────────────────────────────────────────────────────────
+// CASE STUDIES — EDITABLE CONTENT
 // Add, remove, or edit entries here. Each object becomes a page
 // at /case-study/[slug]. body is a simple array of blocks so
 // non-developers can edit copy without touching layout code.
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────
 export type Block =
   | { type: "heading"; text: string }
   | { type: "paragraph"; text: string }
@@ -34,7 +34,7 @@ text: "The Challenge",
 },
 {
 type: "paragraph",
-text: "Replace this text with the specific challenge your voice agent faced â€” for example, sounding too robotic, inconsistent across sessions, or mismatched to the brand.",
+text: "Replace this text with the specific challenge your voice agent faced — for example, sounding too robotic, inconsistent across sessions, or mismatched to the brand.",
 },
 {
 type: "list",
@@ -50,11 +50,11 @@ text: "The Approach",
 },
 {
 type: "paragraph",
-text: "Describe the design principles, tokens, or rules you established to give the voice a personality â€” pacing, warmth, formality, humor, etc.",
+text: "Describe the design principles, tokens, or rules you established to give the voice a personality — pacing, warmth, formality, humor, etc.",
 },
 {
 type: "quote",
-text: "Add a pull-quote here â€” a finding, a piece of user feedback, or a guiding principle.",
+text: "Add a pull-quote here — a finding, a piece of user feedback, or a guiding principle.",
 attribution: "Attribution / role",
 },
 {
@@ -107,4 +107,3 @@ text: "Edit this paragraph to introduce the case study.",
 export function getCaseStudy(slug: string) {
 return caseStudies.find((c) => c.slug === slug);
 }
-

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 
@@ -44,14 +44,14 @@ export default async function CaseStudyPage({
   });
 
   return (
-    <main>
+    <main className="bg-white">
       <Container>
         <div className="py-12">
           <Link
             href="/case-study"
             className="text-[16px] leading-6 text-ink-soft transition-opacity hover:opacity-70"
           >
-            ← Case Studies
+          &larr; Case Studies
           </Link>
 
           <header className="mt-12">
