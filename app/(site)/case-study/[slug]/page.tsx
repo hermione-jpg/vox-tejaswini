@@ -14,6 +14,11 @@ type PageProps = {
   };
 };
 
+type Frontmatter = {
+  title?: string;
+  description?: string;
+};
+
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
 
@@ -31,7 +36,7 @@ export default async function CaseStudyPage({
     notFound();
   }
 
-  const { content, frontmatter } = await compileMDX({
+  const { content, frontmatter } = await compileMDX<Frontmatter>({
     source,
     options: {
       parseFrontmatter: true,
@@ -39,12 +44,12 @@ export default async function CaseStudyPage({
   });
 
   return (
-    <main className="min-h-screen bg-white">
+    <main>
       <Container>
-        <div>
+        <div className="py-12">
           <Link
             href="/case-study"
-            className="text-[16px] text-ink-soft transition-colors hover:text-ink"
+            className="text-[16px] leading-6 text-ink-soft transition-opacity hover:opacity-70"
           >
             ← Case Studies
           </Link>
