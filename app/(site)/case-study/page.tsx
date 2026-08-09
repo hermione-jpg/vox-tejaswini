@@ -2,42 +2,44 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import { caseStudies } from "@/content/case-studies";
 
-export const metadata = { title: "Case Studies — VOX" };
+export const metadata = {
+  title: "Case Studies — VOX",
+};
 
 export default function CaseStudyIndex() {
   return (
-    <Container className="py-16 md:py-20">
-      <p className="font-mono text-[11px] uppercase tracking-widest2 text-ink-faint">
-        VOX
-      </p>
-      <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold tracking-tightest text-ink">
-        Case Studies
-      </h1>
+    <main className="min-h-screen bg-[#51748B]">
+      <Container className="py-16">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {caseStudies.map((cs) => (
+            <Link
+              key={cs.slug}
+              href={`/case-study/${cs.slug}`}
+              className="group flex min-h-[252px] flex-col overflow-hidden rounded-lg bg-[#DCE8EE] transition-transform duration-200 hover:-translate-y-1"
+            >
+              {/* Image */}
+              <div className="relative mx-4 mt-4 aspect-[16/9] overflow-hidden rounded-lg bg-[#C7D7DE]">
+                <img
+                  src={`/images/case-studies/${cs.slug}.png`}
+                  alt={cs.title}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
 
-      <div className="mt-14 grid gap-5 sm:grid-cols-2">
-        {caseStudies.map((cs, i) => (
-          <Link
-            key={cs.slug}
-            href={`/case-study/${cs.slug}`}
-            className="group flex flex-col justify-between rounded-2xl bg-card border hairline p-7 min-h-[220px] transition-colors hover:border-accent"
-          >
-            <span className="font-mono text-[11px] uppercase tracking-widest2 text-ink-faint">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div>
-              <h2 className="font-display text-2xl font-semibold tracking-tightest text-ink group-hover:text-accent transition-colors">
-                {cs.title}
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                {cs.summary}
-              </p>
-            </div>
-            <span className="mt-6 font-mono text-[11px] uppercase tracking-widest2 text-ink-faint group-hover:text-ink transition-colors">
-              Read case study →
-            </span>
-          </Link>
-        ))}
-      </div>
-    </Container>
+              {/* Card content */}
+              <div className="flex flex-1 items-center justify-between gap-4 px-6 py-6">
+                <h2 className="max-w-[220px] text-[16px] font-medium leading-6 text-ink">
+                  {cs.title}
+                </h2>
+
+                <span className="shrink-0 text-[28px] leading-7 text-ink transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Container>
+    </main>
   );
 }

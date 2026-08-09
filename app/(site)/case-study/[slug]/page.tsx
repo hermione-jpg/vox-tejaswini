@@ -10,7 +10,6 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const cs = getCaseStudy(params.slug);
-  return { title: cs ? `${cs.title} — VOX` : "VOX" };
 }
 
 export default function CaseStudyPage({

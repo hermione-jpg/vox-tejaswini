@@ -10,6 +10,7 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./content/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
@@ -42,6 +43,26 @@ const config: Config = {
       letterSpacing: {
         tightest: "-0.03em",
         widest2: "0.18em",
+      },
+      // Used by the voice-dictionary glossary (components/dictionary/*):
+      // the equalizer bars in the listening state, and a small fade-up
+      // entrance for concept illustrations / related-concept chips.
+      keyframes: {
+        bar: {
+          "0%, 100%": { transform: "scaleY(0.3)" },
+          "50%": { transform: "scaleY(1)" },
+        },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(6px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        bar1: "bar 1.1s ease-in-out infinite",
+        bar2: "bar 1.1s ease-in-out 0.15s infinite",
+        bar3: "bar 1.1s ease-in-out 0.3s infinite",
+        bar4: "bar 1.1s ease-in-out 0.45s infinite",
+        fadeUp: "fadeUp 0.4s ease-out both",
       },
     },
   },
