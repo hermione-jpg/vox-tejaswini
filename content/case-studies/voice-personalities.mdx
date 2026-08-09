@@ -1,0 +1,178 @@
+---
+title: Designing Voice Personalities
+description: How tone, pacing, and word choice combine to give a voice agent a consistent, recognizable character.
+image: /images/case-studies/voice-personalities.png
+---
+
+Imagine this.
+
+You tell your friend about your recent holiday adventure only to hear a cold reply.
+
+<img
+  src="/images/case%20studies/wednesday.gif"
+  alt="Wednesday reaction"
+  className="!my-10 !h-auto !w-[320px] !max-w-[320px] rounded-lg"
+/>
+
+Or you stumble into the kitchen at 7 AM, barely awake, and your roommate greets you very cheerfully.
+
+<img
+  src="/images/case%20studies/spongebob.gif"
+  alt="SpongeBob reaction"
+  className="!my-10 !h-auto !w-[320px] !max-w-[320px] rounded-lg"
+/>
+
+The first day, you'd smile.
+
+By the tenth day, you'd roll your eyes.
+
+The problem isn't what they say.
+
+It's the tone and context.
+
+## Why Does It Feel Wrong?
+
+Why does it feel so specifically wrong when a voice's tone doesn't match what you need in the moment, even when the actual information it gives you is correct?
+
+That's because conversation isn't only about information.
+
+It's also about how that information is delivered.
+
+Think about the range of tone you naturally expect from different people in your life:
+
+![Four conversational roles](/images/case%20studies/voice-personalities-02.png)
+
+You don't think about this consciously.
+
+You just expect it — and notice when it's missing.
+
+Voice assistants, for over a decade, gave you exactly one tone for every single one of those situations.
+
+Linguists call this **register** — the natural way humans change their tone, pace, warmth, and level of formality depending on who they're talking to and why.
+
+## How Amazon Approached the Problem
+
+People aren't consistent.
+
+Some mornings, we want someone to simply answer the question.
+
+Other days, a little warmth goes a long way.
+
+Amazon's solution wasn't to make Alexa "more human."
+
+It was to let users choose **how Alexa communicates**, without changing what Alexa can do.
+
+In 2026, Alexa+ introduced four personality styles:
+
+- **Brief** — concise and direct
+- **Chill** — relaxed and conversational
+- **Sweet** — warm and encouraging
+- **Sassy** — playful, witty, occasionally sarcastic
+
+Users can choose both:
+
+- **Who** is speaking — the voice
+- **How** they speak — the personality
+![Alexa](/images/case%20studies/04.jpg)
+
+![Alexa voice and personality interface](/images/case%20studies/05.png)
+
+##### Under the Hood: How a Voice Personality Is Created
+
+Modern conversational voice systems typically adjust several layers simultaneously:
+
+**1.Speech Rate**
+
+Imagine two people saying exactly the same thing.
+
+One says it quickly. The other says it slowly, with relaxed pauses.
+
+The words are identical.
+
+The feeling isn't.
+
+![Speech rate ](/images/case%20studies/speech-rate.png)
+
+**2.Pitch Variation (Prosody)**
+
+This is one of the biggest reasons voices feel alive.
+
+Try saying:
+
+> "Really."
+
+in three ways.
+
+😐 Really.
+
+😮 Really?!
+
+🙄 Really...
+
+Same word. Three emotions.
+
+![Pitch variation and prosody](/images/case%20studies/pitch-variation.png)
+
+**3.Filler Ratio**
+
+Take any simple question:
+
+> "What's the weather today?"
+
+There are several possible replies:
+
+> "24°C."
+
+> "It's 24°C."
+
+> "Sure! It's 24°C today."
+
+> "It looks like a lovely day today. It's currently 24°C with clear skies."
+
+![Filler ratio comparison](/images/case%20studies/filler-ratio.png)
+
+**4.Lexical Density**
+
+Lexical density is simply how much of a sentence is actual information versus conversational language.
+
+**High lexical density:**
+
+> "Timer set. Five minutes."
+
+**Low lexical density:**
+
+> "Sure! I've gone ahead and set a timer for five minutes."
+
+The answer is the same.
+
+The experience isn't.
+![Lexical density comparison](/images/case%20studies/lexical-density.png)
+
+**5.Latency per Persona**
+
+Every personality style is implicitly also a latency trade-off.
+
+A warmer response takes longer to generate and almost certainly costs real milliseconds in generation and synthesis.
+
+**Brief** mode isn't just a tone choice — it's plausibly the fastest-responding mode by design.
+![Latency per persona](/images/case%20studies/latency-per-persona.png)
+
+## What This Means for Designers
+
+Voice personality isn't something you add at the end of the design process.
+
+It's about designing the relationship users have with that character.
+
+Good voice design isn't about making AI sound more human.
+
+It's about reducing the gap between **what a user expects to hear** and **how the assistant actually responds**.
+
+Because in conversation, people rarely remember the exact words.
+
+They remember how those words made them feel.
+
+
+
+
+
+.

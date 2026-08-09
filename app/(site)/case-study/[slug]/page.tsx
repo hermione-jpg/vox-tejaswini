@@ -1,41 +1,121 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { compileMDX } from "next-mdx-remote/rsc";
+
 import Container from "@/components/Container";
-import BlockRenderer from "@/components/BlockRenderer";
-import { caseStudies, getCaseStudy } from "@/content/case-studies";
+import {
+  getCaseStudyContent,
+  getCaseStudySlugs,
+} from "@/lib/getCaseStudies";
 
-export function generateStaticParams() {
-  return caseStudies.map((cs) => ({ slug: cs.slug }));
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateStaticParams() {
+  const slugs = await getCaseStudySlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const cs = getCaseStudy(params.slug);
-}
-
-export default function CaseStudyPage({
+export default async function CaseStudyPage({
   params,
-}: {
-  params: { slug: string };
-}) {
-  const cs = getCaseStudy(params.slug);
-  if (!cs) return notFound();
+}: PageProps) {
+  const source = await getCaseStudyContent(params.slug);
+
+  if (!source) {
+    notFound();
+  }
+
+  const { content, frontmatter } = await compileMDX({
+    source,
+    options: {
+      parseFrontmatter: true,
+    },
+  });
 
   return (
-    <Container className="py-16 max-w-3xl">
-      <Link
-        href="/case-study"
-        className="font-mono text-[11px] uppercase tracking-widest2 text-ink-faint link-quiet"
-      >
-        ← Case Studies
-      </Link>
-      <h1 className="mt-6 font-display text-4xl md:text-5xl font-semibold tracking-tightest leading-tight text-ink">
-        {cs.title}
-      </h1>
-      <p className="mt-4 text-lg text-ink-soft">{cs.summary}</p>
+    <main className="min-h-screen bg-white">
+      <Container>
+        <div>
+          <Link
+            href="/case-study"
+            className="text-[16px] text-ink-soft transition-colors hover:text-ink"
+          >
+            ← Case Studies
+          </Link>
 
-      <div className="mt-14">
-        <BlockRenderer blocks={cs.body} />
-      </div>
-    </Container>
+          <header className="mt-12">
+            {frontmatter.title && (
+              <h1 className="font-display text-[36px] leading-10 font-semibold tracking-tightest text-ink">
+                {frontmatter.title}
+              </h1>
+            )}
+
+            {frontmatter.description && (
+              <p className="mt-4 max-w-2xl text-[16px] leading-6 text-ink-soft">
+                {frontmatter.description}
+              </p>
+            )}
+          </header>
+
+          <article
+            className="
+              mt-14
+              max-w-3xl
+
+              [&_h2]:mt-16
+              [&_h2]:mb-6
+              [&_h2]:font-display
+              [&_h2]:text-[24px]
+              [&_h2]:leading-8
+              [&_h2]:font-semibold
+              [&_h2]:tracking-tightest
+              [&_h2]:text-ink
+
+              [&_h3]:mt-12
+              [&_h3]:mb-4
+              [&_h3]:font-display
+              [&_h3]:text-[20px]
+              [&_h3]:leading-7
+              [&_h3]:font-semibold
+              [&_h3]:text-ink
+
+              [&_p]:mb-6
+              [&_p]:text-[16px]
+              [&_p]:leading-6
+              [&_p]:text-ink-soft
+
+              [&_img]:my-10
+              [&_img]:h-auto
+              [&_img]:max-w-full
+              [&_img]:rounded-lg
+
+              [&_ul]:mb-6
+              [&_ul]:space-y-2
+              [&_ul]:pl-5
+
+              [&_li]:text-[16px]
+              [&_li]:leading-6
+              [&_li]:text-ink-soft
+
+              [&_blockquote]:my-10
+              [&_blockquote]:border-l
+              [&_blockquote]:border-ink-faint
+              [&_blockquote]:pl-5
+              [&_blockquote]:text-[20px]
+              [&_blockquote]:leading-7
+              [&_blockquote]:text-ink
+            "
+          >
+            {content}
+          </article>
+        </div>
+      </Container>
+    </main>
   );
 }

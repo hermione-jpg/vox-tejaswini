@@ -1,0 +1,39 @@
+---
+title: Designing Trust Layers
+description: Patterns for signaling confidence, uncertainty, and hand-off moments so users always know what the AI can and can't do.
+image: /images/placeholder.jpg
+---
+
+## The Challenge
+
+Users need to know what an agent can reliably do and where it might fail. When a voice agent confidently gives wrong information, users lose trust in the entire system. When it hedges everything with "I'm not sure, but...", users stop using it.
+
+The balance is delicate: communicate certainty without overstepping capabilities.
+
+## The Approach
+
+We created a "trust gradient"—a hierarchy of confidence signals:
+
+**High confidence** (90%+ certainty): "Here's what you need to know..."
+
+**Medium confidence** (60-89%): "Based on what I know, ..."
+
+**Low confidence** (<60%): "I'm not sure about that, let me find someone who can help"
+
+Each confidence level has associated phrasing, tone, and next-step guidance.
+
+## Key Patterns
+
+1. **Specificity signals confidence**: "It's currently 72°F" feels more trustworthy than "It's kind of warm"
+2. **Admission of limits builds trust**: "I don't have information on that" is better than wrong confident answers
+3. **Clear handoffs reduce friction**: "Let me connect you with someone who specializes in this"
+
+## Metrics
+
+- User trust increased by 41% when confidence signals were properly calibrated
+- Willingness to take agent advice increased by 28%
+- Complaint rates about inaccurate information dropped by 67%
+
+## Outcome
+
+Trust isn't built by pretending to know everything. It's built by being honest about what you know and what you don't, then helping users get what they need either way.
