@@ -1,35 +1,202 @@
 ---
 title: Designing Vocal Performance
-description: Exploring how timing, breath, and micro-pauses shape how trustworthy and natural a voice feels.
-image: /images/placeholder.jpg
+description: A 1-2 sentence summary that appears on the listing card
+image: /images/case%20studies/designing Vocal Performance.jpg
 ---
 
-## The Challenge
 
-Voice quality isn't just about the words—it's about delivery. When a voice agent speaks too quickly, doesn't pause naturally, or sounds like it's processing in real-time, users lose confidence. They start treating it like a computer, not a conversation partner.
+You just heard the same sentence performed in different ways.
 
-We noticed users were interrupting the agent mid-sentence because the delivery felt unnatural. Response times that felt instantaneous in text read as anxiety in voice.
+Nothing about the words changed.
 
-## The Approach
+The meaning didn't come from the sentence.
 
-We focused on three dimensions:
+It came from the voice delivery.
 
-**Prosody**: Intonation patterns that mirror natural speech—questions go up, conclusions go down.
+Yet each version told a different story.
 
-**Timing**: Introducing strategic pauses after important points, not rushing to fill silence.
+---
+## Designing Vocal Performance
 
-**Breath**: Subtle breath sounds between thoughts. A voice that never breathes isn't human.
+Humans can naturally perform. Actors spend years learning it.
 
-We worked with voice talent to record variations of key phrases and measured listener responses using perceptual studies.
+For years, Voice could pronounce words correctly and read sentences clearly.
 
-## Key Findings
+But it couldn't perform them.
 
-- Responses with 0.5-second pauses between ideas scored 28% higher on "naturalness" than instant responses
-- Breath sounds increased trust scores by 19%
-- Slight intonation variation (vs. flat delivery) increased comprehension by 34%
+Voice AI is only beginning to do so.
 
-## Results
+Then something changed.
 
-The refined vocal performance reduced user interruption rates by 45%. In exit surveys, users were significantly more likely to describe the agent as "helpful" and "trustworthy" rather than "robotic" or "artificial."
+Companies like ElevenLabs started asking,
 
-Voice personality and vocal performance work together—personality gives you the *what*, performance gives you the *how*.
+**"Can AI perform this sentence?"**
+
+---
+
+## How ElevenLabs explores Voice Performance
+
+Traditional text-to-speech systems were designed to pronounce words correctly.
+
+ElevenLabs explores a different direction: expressive speech generation. Alongside realistic voice synthesis, its newer models allow developers to guide how a line should be performed using natural-language instructions and expressive tags.
+
+While ElevenLabs hasn't publicly described every internal mechanism, the user experience suggests a shift from reading text to performing speech.
+
+**So how does AI know how to perform?**
+
+Traditionally all the text was written in markup language, across major providers like Google, Amazon, Microsoft.
+
+ElevenLabs trained their model Eleven v3 on real end-to-end speech. You can now give the model **performance directions** directly inside the script.
+
+![performance](/images/case%20studies/performance.png)
+
+Before generating any audio, the model reads these directions and plans **how** the line should be delivered.
+
+It's less like programming. More like directing an actor.
+
+---
+
+## How can we design for Vocal Performance?
+
+This requires optimizing several things simultaneously:
+
+### 1. Emotional Intent
+
+Every line begins with an emotional objective.
+
+Instead of requiring the developer to explicitly say "Speak happily", the model tries to infer emotion from:
+
+- the conversation
+- punctuation
+- wording
+- previous dialogue
+- system instructions
+
+Additionally, developers can still guide delivery with prompts or expressive tags like `[laughs]`, `[whispers]`, or `[sighs]` when they want finer control.
+
+![Emotional intent](/images/case%20studies/emotionintent.png)
+
+
+For example:
+
+`"I'm sorry."`
+
+`"I completely understand."`
+
+`"Let's fix this together."`
+
+Each line has a different emotional intention.
+
+The model performs each one differently instead of applying one emotion to the entire interaction.
+
+
+---
+
+### 2. Vocal Expression
+
+Emotion becomes believable through vocal expression.
+
+Humans naturally say more than words — we laugh, whisper, hesitate, breathe.
+
+These small sounds make speech feel alive. They transform speech from narration into performance.
+
+![Vocal expression](/images/case%20studies/vocal.png)
+
+
+#### Trade-off
+
+More non-verbal behavior can increase realism, but too much makes the AI feel theatrical or distracting.
+
+
+---
+
+### 3. Speaking Rhythm
+
+Imagine two people saying:
+
+> "I understand."
+
+One replies immediately.
+
+The other pauses first.
+
+> "I... understand."
+
+The words are identical.
+
+The feeling isn't.
+
+![speak](/images/case%20studies/rytm.png)
+---
+
+### 4. Emotional Progression
+
+Real conversations don't stay emotionally constant.
+
+A support interaction may begin with concern, move toward reassurance, and end with encouragement.
+
+Even within a single sentence, the emotional delivery may shift as the meaning unfolds.
+
+![Emotional progression](/images/case%20studies/proress.png)
+
+---
+
+### 5. Voice Casting
+
+Performance depends on the voice itself.
+
+A calm narrator, an energetic presenter, and a child-like voice will perform the same script differently.
+
+Choosing the right voice determines how believable every emotional cue will feel.
+
+![Voice casting](/images/case%20studies/voicecast.png)
+
+---
+
+## Design Trade Off
+
+### 1. Speed / Low Latency
+
+Highly expressive speech requires more reasoning about context and performance.
+
+ElevenLabs explicitly positions v3 as a quality-first model, distinct from its faster sibling models — Turbo and Flash prioritize speed and low latency for real-time assistants or call-center bots.
+
+
+---
+
+### 2. Less Predictability
+
+An expressive model has more freedom.
+
+ElevenLabs encourages developers to constrain emotional behavior through system prompts and brand voice guidelines.
+
+A more deterministic model produces more consistent but often flatter speech.
+
+
+---
+
+## What This Means for Designers
+
+For decades, designers have focused on writing the right words.
+
+Voice AI introduces a new design material: **Performance.**
+
+The same sentence can reassure someone, build urgency, express empathy, or create excitement — without changing a single word.
+
+The difference lies in how it's delivered.
+
+As expressive voice models become more capable, designers will increasingly make decisions such as:
+
+-Should this response sound calm or energetic?
+
+-Where should the assistant pause?
+
+-Which word deserves emphasis?
+
+-When should the voice acknowledge emotion, and when should it stay neutral?
+
+-How expressive is appropriate for this product and this moment?
+
+These aren't technical decisions.
+
+They're interaction design decisions.
