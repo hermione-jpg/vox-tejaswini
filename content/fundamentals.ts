@@ -300,8 +300,7 @@ export const lessons: Lesson[] = [
   
       {
         type: "paragraph",
-        text: 'Consider these two sentences: 
-        text: '"Book a table." "Book a flight."',
+        text: 'Consider these two sentences: "Book a table." "Book a flight."',
       },      
   
       {
