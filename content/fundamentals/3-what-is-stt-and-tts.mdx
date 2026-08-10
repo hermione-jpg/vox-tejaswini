@@ -1,0 +1,36 @@
+---
+title: What is STT and TTS?
+navTitle: What is STT and TTS?
+group: Foundations
+kicker: These are the core systems that convert speech and text.
+order: 3
+---
+
+Humans naturally communicate through speech. Most voice AI systems, however, process language as text internally.
+
+To bridge this gap, voice AI relies on two core technologies:
+
+Speech-to-Text (STT) — Converts spoken words into text.
+
+Text-to-Speech (TTS) — Converts text into spoken words
+![stt](/images/fundamentals/stt.png)
+
+This is one of the reasons voice interfaces can feel more natural and efficient than typing.
+
+**Why are STT and TTS needed?**
+
+Large Language Models (LLMs) don't understand raw audio.
+
+They process text tokens, not sound waves.
+
+When you speak to a voice assistant, your voice must first be converted into text before the AI can understand your request. Once the AI generates a response, that text must then be converted back into speech for you to hear.
+
+Without STT and TTS, voice conversations with AI wouldn't be possible.
+
+![stt flow](/images/fundamentals/sttflow.png)
+
+Converting speech into text in real time is a challenging task. To measure this, speech recognition systems use a metric called Word Error Rate (WER). It measures the percentage of words that are substituted, deleted, or inserted incorrectly during transcription. A lower WER indicates a more accurate Speech-to-Text system.
+
+STT Providers: Several companies provide Speech-to-Text models-OpenAI Whisper, Deepgram, Google Speech-to-Text, Amazon Transcribe
+
+TTS Providers: Popular providers include ElevenLabs, OpenAI, Google Cloud Text-to-Speech, Amazon Polly, PlayAI

@@ -1,0 +1,41 @@
+---
+title: How does AI detect Voice?
+navTitle: How does AI detect Voice?
+group: Foundations
+kicker: AI detects when you start and stop speaking.
+order: 4
+---
+
+When you're talking to another person, they naturally know when you've started speaking and when you've finished.
+
+Voice AI doesn't.
+
+Before an AI can understand what you're said, it first needs to determine whether you're speaking at all. This is the role of Voice Activity Detection (VAD).
+
+VAD is a system that continuously listens to incoming audio and decides whether it contains human speech or background noise.
+
+![vad](/images/fundamentals/vad.png)
+
+VAD filters the audio and identifies the portions that actually contain speech. This reduces unnecessary processing and helps the assistant respond at the right moment.
+
+Without VAD, a voice assistant wouldn't know when to start listening, when to stop listening, or when it's appropriate to respond.
+
+It decides when speech begins and when it ends before the audio is sent for transcription.
+
+**How does VAD work?**
+
+A VAD system continuously analyzes the incoming audio stream.
+
+It looks for characteristics that resemble human speech, such as:
+
+Voice energy (volume)
+
+Speech frequencies
+
+Speaking patterns
+
+Duration of sound
+
+If speech is detected, the audio is forwarded to the Speech-to-Text system.
+
+If only silence or background noise is detected, the audio is ignored.

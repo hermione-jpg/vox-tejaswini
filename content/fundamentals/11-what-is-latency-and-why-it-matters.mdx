@@ -1,0 +1,37 @@
+---
+title: What Is Latency, and Why Does It Matter?
+navTitle: What Is Latency?
+group: Applied Concepts
+kicker: Every millisecond of delay changes how natural a conversation feels.
+order: 11
+---
+
+In text chat, a two-second delay is barely noticeable. In voice, a two-second delay feels like the system froze.
+
+## Where latency comes from
+
+A single voice exchange passes through several stages, and each one adds time:
+
+- Capturing and detecting speech
+- Converting speech to text (STT)
+- Generating a response (LLM)
+- Converting text back to speech (TTS)
+- Sending audio back to the user
+
+## Why humans notice it so easily
+
+Human conversation has a natural rhythm — that ~200 millisecond gap between turns mentioned earlier. When AI takes noticeably longer than that, it doesn't just feel slow. It breaks the illusion that you're having a conversation at all.
+
+<Callout>
+Below ~300ms, a pause feels natural. Above ~1 second, it starts to feel like the system isn't listening.
+</Callout>
+
+## How systems compensate
+
+Since removing all delay isn't possible, well-designed voice AI hides it instead:
+
+- Streaming responses word-by-word instead of waiting for the full answer
+- Starting to speak before the entire reply is generated
+- Using short acknowledgment sounds or phrases while thinking
+
+None of these make the AI faster — they make the wait feel shorter, which is often just as important.

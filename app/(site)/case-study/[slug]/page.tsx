@@ -1,12 +1,8 @@
-﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 
 import Container from "@/components/Container";
-import {
-  getCaseStudyContent,
-  getCaseStudySlugs,
-} from "@/lib/getCaseStudies";
+import { getCaseStudyContent, getCaseStudySlugs } from "@/lib/getCaseStudies";
 
 type PageProps = {
   params: {
@@ -14,17 +10,9 @@ type PageProps = {
   };
 };
 
-type Frontmatter = {
-  title?: string;
-  description?: string;
-};
-
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
-
-  return slugs.map((slug) => ({
-    slug,
-  }));
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default async function CaseStudyPage({
@@ -36,7 +24,10 @@ export default async function CaseStudyPage({
     notFound();
   }
 
-  const { content, frontmatter } = await compileMDX<Frontmatter>({
+  const { content, frontmatter } = await compileMDX<{
+    title?: string;
+    description?: string;
+  }>({
     source,
     options: {
       parseFrontmatter: true,
@@ -44,15 +35,15 @@ export default async function CaseStudyPage({
   });
 
   return (
-    <main className="bg-white">
+    <main>
       <Container>
-        <div className="py-12">
-          <Link
+        <div className="max-w-3xl">
+          <a
             href="/case-study"
-            className="text-[16px] leading-6 text-ink-soft transition-opacity hover:opacity-70"
+            className="font-mono text-[12px] leading-4 text-ink-faint hover:text-ink"
           >
-          &larr; Case Studies
-          </Link>
+            ← Case Studies
+          </a>
 
           <header className="mt-12">
             {frontmatter.title && (
@@ -97,7 +88,7 @@ export default async function CaseStudyPage({
 
               [&_img]:my-10
               [&_img]:h-auto
-              [&_img]:max-w-full
+              [&_img]:w-full
               [&_img]:rounded-lg
 
               [&_ul]:mb-6

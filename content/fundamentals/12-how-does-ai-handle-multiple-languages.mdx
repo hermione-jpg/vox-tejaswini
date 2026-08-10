@@ -1,0 +1,30 @@
+---
+title: How Does AI Handle Multiple Languages?
+navTitle: Handling Multiple Languages
+group: Applied Concepts
+kicker: Language switching adds a new layer of complexity to voice AI.
+order: 12
+---
+
+Many speakers move between languages mid-sentence without noticing — a habit often called code-switching. For voice AI, this is one of the hardest problems to solve well.
+
+## What has to happen
+
+Handling multiple languages isn't just translation. The system has to:
+
+- Detect which language is being spoken, in real time
+- Recognize when a speaker switches languages mid-sentence
+- Choose a voice and accent that matches the response language
+- Keep meaning and tone consistent across the switch
+
+## Why this is harder than it sounds
+
+Speech-to-Text and Text-to-Speech models are often trained per-language. Switching languages mid-conversation can mean switching models entirely — which reintroduces the latency problem from the previous lesson, at exactly the moment it's least forgivable.
+
+<Callout>
+A system that handles one language flawlessly can still feel broken the moment a user mixes in a second one.
+</Callout>
+
+## Why it matters for design, not just engineering
+
+In many multilingual regions, code-switching isn't an edge case — it's the default way people actually talk. Designing voice AI only for "clean," single-language input means designing for a version of conversation that doesn't reflect how a large share of users actually speak.
