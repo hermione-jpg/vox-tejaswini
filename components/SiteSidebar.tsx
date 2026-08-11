@@ -87,7 +87,7 @@ export default function SiteSidebar() {
 
         {/* Last Updated */}
         <p className="mt-6 text-center font-mono text-[10px] text-ink-soft">
-          Last Updated - 31-07-2026
+          Last Updated - 10-08-2026
         </p>
       </aside>
 

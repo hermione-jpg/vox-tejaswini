@@ -34,6 +34,7 @@ export default async function CaseStudyIndex() {
                   <h2 className="max-w-[220px] text-[16px] font-medium leading-6 text-ink">
                     {cs.title}
                   </h2>
+
                   {cs.description && (
                     <p className="max-w-[220px] text-[12px] leading-4 text-ink-soft">
                       {cs.description}

@@ -3,6 +3,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 
 import Container from "@/components/Container";
 import { getCaseStudyContent, getCaseStudySlugs } from "@/lib/getCaseStudies";
+import { TalkAboutThisPage } from "@/components/case-study/TalkAboutThisPage";
 
 type PageProps = {
   params: {
@@ -35,7 +36,7 @@ export default async function CaseStudyPage({
   });
 
   return (
-    <main>
+    <main className="min-h-screen bg-white">
       <Container>
         <div className="max-w-3xl">
           <a
@@ -58,6 +59,10 @@ export default async function CaseStudyPage({
               </p>
             )}
           </header>
+
+          {params.slug === "voice-for-learn" && (
+            <TalkAboutThisPage slug={params.slug} />
+          )}
 
           <article
             className="
@@ -86,10 +91,17 @@ export default async function CaseStudyPage({
               [&_p]:leading-6
               [&_p]:text-ink-soft
 
+              /* NORMAL IMAGES */
               [&_img]:my-10
               [&_img]:h-auto
               [&_img]:w-full
+              [&_img]:max-w-full
               [&_img]:rounded-lg
+
+              /* GIF IMAGES */
+              [&_img[src$='.gif']]:!w-[480px]
+              [&_img[src$='.gif']]:!max-w-[480px]
+              [&_img[src$='.gif']]:mx-auto
 
               [&_ul]:mb-6
               [&_ul]:space-y-2
