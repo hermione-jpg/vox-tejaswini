@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes } from "react";
+import type { ImgHTMLAttributes, VideoHTMLAttributes } from "react";
 import type { MDXComponents } from "mdx/types";
 
 export function MdxImage(props: ImgHTMLAttributes<HTMLImageElement>) {
@@ -20,6 +20,60 @@ export function MdxImage(props: ImgHTMLAttributes<HTMLImageElement>) {
   );
 }
 
+export function MdxVideo(props: VideoHTMLAttributes<HTMLVideoElement>) {
+  const { style, ...rest } = props;
+
+  return (
+    <video
+      {...rest}
+      controls
+      playsInline
+      style={{
+        display: "block",
+        width: "100%",
+        maxWidth: "100%",
+        height: "auto",
+        margin: "32px auto",
+        borderRadius: "16px",
+        ...style,
+      }}
+    />
+  );
+}
+
+export function PortraitVideo({
+  src,
+  height = 520,
+}: {
+  src: string;
+  height?: number;
+}) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        margin: "32px auto",
+      }}
+    >
+      <video
+        src={src}
+        controls
+        playsInline
+        style={{
+          display: "block",
+          width: "auto",
+          height: `${height}px`,
+          maxWidth: "100%",
+          borderRadius: "16px",
+          objectFit: "contain",
+        }}
+      />
+    </div>
+  );
+}
+
 export function Callout({
   children,
 }: {
@@ -35,4 +89,6 @@ export function Callout({
 export const fundamentalsMdxComponents: MDXComponents = {
   Callout,
   img: MdxImage,
+  video: MdxVideo,
+  PortraitVideo,
 };

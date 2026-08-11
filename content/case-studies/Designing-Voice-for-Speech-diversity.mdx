@@ -1,0 +1,182 @@
+---
+title: Designing Voice for Speech Diversity 
+description: How voice systems understand and speaks across accents, languages, and variation of human speech.
+image: /images/case%20studies/sarvam.png
+---
+
+<video
+  src="/videos/accent.mp4"
+  controls
+  playsInline
+  style={{
+    display: "block",
+    width: "auto",
+    height: "520px",
+    maxWidth: "100%",
+    margin: "0 auto",
+    borderRadius: "16px",
+  }}
+/>
+.
+
+English doesn't sound the same everywhere.
+
+And even within India, English can sound dramatically different depending on region, first language, community, and exposure.
+Now think about thousands of Indian or other native languages, dialects.
+
+Humans are remarkably good at adapting to this variation. We hear an unfamiliar accent, listen for a few seconds, adjust our expectations, and continue the conversation.
+
+A voice system has to learn how to do the same.
+
+## What is an Accent?
+
+An accent isn't a different language.
+
+It is a different way of producing the same language.
+
+It can be shaped by:
+
+ - **Region**  - **First language**  - **Community**  - **Culture**  - **Geography**  - **Exposure**
+
+There is no single “neutral” human accent.
+What sounds unfamiliar to one listener may be completely ordinary to another.
+
+## When the System Doesn't Adapt
+This is where the human problem becomes a product problem.
+
+When a system repeatedly misunderstands, you aren't just frustrated, you slow down, repeat, change pronunciation, basically monitor your Speech and predict what the system will understand.
+
+Over time, this can make an accent feel like a problem that needs correcting.
+
+*But an accent isn't an error state. It is part of how a person speaks.*
+
+## A Real System: Sarvam
+Sarvam is an interesting example because it approaches speech from the reality of Indian language and speech diversity rather than treating it as a variation of an English-first system.
+
+<video
+  src="/videos/sarvam.mp4"
+  controls
+  playsInline
+  style={{
+    width: "50%",
+    borderRadius: "16px",
+  }}
+/>
+.
+
+Its speech stack addresses multiple Indian languages, regional speech variation, multilingual speech, and code-switching. 
+Its speech-recognition work, including Saaras and the Svarah benchmark, makes the problem more concrete: Indian speech itself contains substantial variation that a voice system needs to account for.
+
+## Designing for Speech diversity
+
+Speech diversity isn't created by accent alone.
+Before a system can understand or reproduce an accent, it has to account for the conditions that shape how that speech appears in the first place:
+
+**1. Language Mixing:**
+In India, switching between languages is often part of **ordinary conversation**, not an exception.
+
+A speaker might say:
+
+> “I'll call you later, *abhi* I'm in a meeting.”
+
+The speaker isn't necessarily translating in their head. They are using whichever language feels natural for that part of the thought.
+
+![Language Mixing](/images/case%20studies/mix.png)
+
+**2. Accent variation:**
+An accent is not a fixed template.
+
+Two people from the same region, with the same first language, can still pronounce the same words differently.
+
+This means a system can perform well on one speaker while failing on another speaker who belongs to the same broad accent group.
+
+![Accent variation](/images/case%20studies/variation.png)
+
+**3. Speaking Conditions:**
+Speech changes with the situation.
+
+A person speaking into a microphone in a quiet room does not sound the same to a system as that person speaking over a phone, in traffic, or in a crowded café.
+
+![Speaking Conditions](/images/case%20studies/noise.png)
+
+## One Problem, Two Directions
+
+Speech diversity affects voice AI in two ways:
+
+![Speech diversity](/images/case%20studies/diversity.png)
+
+## The Listening System
+
+When AI listens, the problem isn't simply transcribing different accents.
+
+It has to recognise that the same language can arrive through different sounds, rhythms, speakers, and linguistic patterns — and still represent the same meaning.
+
+**1. Pronunciation Range:**
+The same word can be produced differently across accents.
+
+Vowels, consonants, and syllables can shift while the intended word remains the same.
+
+Voice AI therefore needs to account for a **range of valid pronunciations**, rather than treating one pronunciation as the default.
+
+**2.Rhythm & Stress:**
+Accents affect more than individual sounds.
+
+Speakers can differ in where they place stress, how they group words, and how speech moves through an utterance.
+
+Take:
+
+> **“I didn't say you could cancel it.”**
+
+The words stay the same, but changing the stressed word changes what the listener understands as important.
+
+> **I** didn't say you could cancel it.  
+> I **didn't** say you could cancel it.  
+> I didn't say **you** could cancel it.  
+> I didn't say you could **cancel** it.
+
+Rhythm changes the delivery further.
+
+One speaker might produce the sentence as one continuous phrase:
+
+> “I didn't say you could cancel it.”
+
+Another might group it differently:
+
+> “I didn't say that… you could cancel it.”
+
+## The Speaking System
+While Listening asks whether AI can accommodate variation. Speaking asks the opposite:
+**Can AI intentionally produce that accent?**
+
+**1.Accent Authenticity:**
+A voice can pronounce the right words and still sound wrong.
+
+Accent is carried through more than individual sounds. Pronunciation, stress, rhythm, and intonation work together to create how a particular variety of speech is perceived.
+
+**2.Accent Consistency**
+A convincing accent needs to survive beyond a single sentence.
+
+Consistency needs to hold across sentences, turns, longer responses, and changing conversational contexts.
+
+It should also remain coherent when pronunciation becomes more complex or languages are mixed.
+
+**What This Reveals**
+Speech diversity isn't one variable.
+
+**Pronunciation × Prosody × Language × Speaker × Environment**
+
+## What This Means for Designers
+
+Speech diversity shouldn't be treated as an accessibility layer added after the voice experience is designed.
+
+It changes the experience from the beginning.
+
+Designers need to consider **who is speaking, how they speak, what the system can actually recognise, and what happens when that recognition breaks.**
+
+The goal isn't to make every speaker sound the same to the system.
+
+**The goal is to make the system capable of meeting people where they speak.**
+
+
+.
+
