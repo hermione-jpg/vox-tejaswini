@@ -9,7 +9,7 @@ export default function Footer() {
           href="/"
           className="font-display text-[28px] font-semibold leading-none text-white"
         >
-          VOX. <span className="text-[16px]">v1</span>
+          VOX
         </Link>
 
         <p className="mt-4 text-[16px] font-medium text-white">

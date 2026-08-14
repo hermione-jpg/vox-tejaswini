@@ -11,7 +11,7 @@ export const siteConfig = {
     "https://www.figma.com/design/BLtl8zCWIbYKUEUo1nKtCv/Vox-%E2%80%94-Open-Design-System-for-Conversational---Voice-AI--Community-?m=auto&t=5kpgiMMFHrogYety-6",
   nav: [
     { label: "Case Studies", href: "/case-study" },
-    { label: "Vox System", href: "/" },
+    { label: "Vox System", href: "/vox-system" },
     { label: "Glossary", href: "/dict" },
     { label: "Fundamentals", href: "/fundamentals" },
     { label: "Overview", href: "/overview" },
@@ -68,5 +68,5 @@ export const homeCopy = {
 
 export const footerCopy = {
   madeBy: "Made by Tejaswini",
-  versionTag: "VOX. v1",
+  versionTag: "VOX",
 };

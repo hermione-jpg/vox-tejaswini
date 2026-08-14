@@ -20,13 +20,23 @@ export default function SiteSidebar() {
     <>
       {/* Desktop Sidebar */}
       <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:w-[260px] md:flex-col md:bg-card md:px-8 md:py-14">
-        
-        {/* VOX Logo */}
+
+        {/* VOX Logo + Description */}
         <Link
           href="/"
-          className={`${krona.className} text-center text-[28px] text-ink`}
+          className="block text-center"
         >
-          VOX
+          <span
+            className={`${krona.className} block text-[28px] text-ink`}
+          >
+            VOX
+          </span>
+
+          <span className="mt-2 block text-[11px] leading-4 text-ink">
+            A framework for designing
+            <br />
+            voice AI.
+          </span>
         </Link>
 
         {/* Navigation */}
@@ -87,20 +97,24 @@ export default function SiteSidebar() {
 
         {/* Last Updated */}
         <p className="mt-6 text-center font-mono text-[10px] text-ink-soft">
-          Last Updated - 10-08-2026
+          Last Updated - 15-08-2026
         </p>
       </aside>
 
       {/* Mobile Header */}
       <header className="sticky top-0 z-40 border-b hairline bg-card/95 backdrop-blur md:hidden">
-        
+
         {/* Mobile Logo */}
         <div className="flex h-14 items-center justify-center px-5">
           <Link
             href="/"
-            className={`${krona.className} text-[21px] text-ink`}
+            className="text-center"
           >
-            VOX
+            <span
+              className={`${krona.className} block text-[21px] text-ink`}
+            >
+              VOX
+            </span>
           </Link>
         </div>
 

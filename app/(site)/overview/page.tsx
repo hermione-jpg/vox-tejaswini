@@ -10,7 +10,7 @@ export default function OverviewPage() {
       {/* Hero */}
       <section className="py-16">
         <Container>
-          <h1 className="font-display text-[28px] md:text-[32px] font-semibold tracking-tight text-ink">
+          <h1 className="font-display text-[28px] font-semibold tracking-tight text-ink md:text-[32px]">
             Designing for interfaces that speak.
           </h1>
 
@@ -18,92 +18,113 @@ export default function OverviewPage() {
 
           <div className="mt-10 max-w-4xl space-y-8">
             <p className="text-[16px] leading-6 text-ink">
-              VOX is an independent research and design practice exploring{" "}
+              VOX is an independent research focused on{" "}
               <strong>
-                voice interaction, conversational AI, and the systems behind
-                spoken interfaces.
+                voice interaction, conversational AI, and spoken interfaces.
               </strong>
             </p>
 
             <p className="text-[16px] leading-6 text-ink">
-              It started with a simple observation:
-            </p>
-
-            <p className="font-display text-[20px] leading-8 font-medium text-ink">
-              A voice interface doesn't have a visual surface to fall back on.
+              It explores how interaction design changes when voice becomes the
+              interface.
             </p>
 
             <p className="text-[16px] leading-6 text-ink">
-              There is no screen hierarchy to scan, no button to press, and no
-              paragraph to reread. The interaction has to communicate through
-              speech, timing, turn-taking, memory, context, and response.
+              Voice interfaces do not have a visual surface to fall back on.
+              There is no screen hierarchy to scan, button to press, or
+              paragraph to reread. Interaction depends on speech, timing,
+              turn-taking, memory, context, and system behaviour.
             </p>
 
             <p className="text-[16px] leading-6 text-ink">
-              That makes voice design less about designing screens and more
-              about designing behaviour over time.
+              VOX studies these differences from a design perspective.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* What I work on */}
+      {/* Who it's for */}
       <section className="border-t hairline py-12">
         <Container>
           <div className="max-w-4xl">
             <h2 className="text-[16px] font-medium text-ink">
-              What I work on
+              Who it's for
+            </h2>
+
+            <div className="mt-8 space-y-6">
+              <p className="text-[16px] leading-6 text-ink-soft">
+                VOX is primarily for{" "}
+                <strong className="text-ink">
+                  UX, product, and conversation designers working with voice
+                  AI.
+                </strong>
+              </p>
+
+              <p className="text-[16px] leading-6 text-ink-soft">
+                It is also for designers moving from screen-based interfaces
+                into voice, and AI product teams who need to understand how
+                technical systems affect the user experience.
+              </p>
+
+              <p className="text-[16px] leading-6 text-ink-soft">
+                The work assumes basic design knowledge and builds toward
+                practical, intermediate-level voice design knowledge.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* What's inside */}
+      <section className="border-t hairline py-12">
+        <Container>
+          <div className="max-w-4xl">
+            <h2 className="text-[16px] font-medium text-ink">
+              What's inside
             </h2>
 
             <div className="mt-8 space-y-8">
               <div>
                 <h3 className="text-[16px] font-medium text-ink">
-                  Vocal behaviour
+                  Case Studies
                 </h3>
+
                 <p className="mt-2 text-[16px] leading-6 text-ink-soft">
-                  How pace, pauses, emphasis, pronunciation, and delivery
-                  shape personality and meaning.
+                  Focused investigations into specific voice products, systems,
+                  and interaction problems.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-[16px] font-medium text-ink">
-                  Conversation design
+                  VOX System
                 </h3>
+
                 <p className="mt-2 text-[16px] leading-6 text-ink-soft">
-                  How systems handle turns, interruptions, ambiguity, repair,
-                  memory, and changing user intent.
+                  A developing framework for designing voice AI, built from
+                  principles and patterns identified through the research.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-[16px] font-medium text-ink">
-                  Voice UX
+                  Fundamentals
                 </h3>
+
                 <p className="mt-2 text-[16px] leading-6 text-ink-soft">
-                  How familiar interactions such as learning, assistance,
-                  search, and information retrieval change when they become
-                  conversational.
+                  The technical foundations designers need to understand voice
+                  AI and its constraints.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-[16px] font-medium text-ink">
-                  AI behaviour
+                  Glossary
                 </h3>
-                <p className="mt-2 text-[16px] leading-6 text-ink-soft">
-                  How latency, tool use, context, uncertainty, and model
-                  limitations become part of the user experience.
-                </p>
-              </div>
 
-              <div>
-                <h3 className="text-[16px] font-medium text-ink">
-                  Evaluation
-                </h3>
                 <p className="mt-2 text-[16px] leading-6 text-ink-soft">
-                  How voice interactions can be observed, tested, and measured
-                  beyond whether the system technically understood the words.
+                  A concise reference for the terminology used across voice AI
+                  and VOX.
                 </p>
               </div>
             </div>
@@ -121,68 +142,53 @@ export default function OverviewPage() {
 
             <div className="mt-8 space-y-8">
               <p className="text-[16px] leading-6 text-ink">
-                I don't treat voice as a visual interface with speech added on
-                top.
-              </p>
-
-              <p className="text-[16px] leading-6 text-ink">
-                I start with the interaction itself.
+                Each study starts with a specific design question.
               </p>
 
               <p className="font-display text-[20px] leading-8 font-medium text-ink">
-                Question → Research → Model → Prototype → Test → Principle
+                Question → Research → Analysis → Prototype → Test → Principle
               </p>
 
               <p className="text-[16px] leading-6 text-ink-soft">
-                Each project begins with a specific interaction problem. I
-                study existing products and relevant research, identify the
-                underlying behaviour, build a focused prototype, and document
-                what the investigation reveals.
+                I examine existing products, technical systems, and relevant
+                research, then prototype where useful to investigate the
+                interaction problem.
               </p>
 
               <p className="text-[16px] leading-6 text-ink-soft">
-                When a pattern proves useful, I turn it into a reusable{" "}
-                <strong>principle, pattern, or system.</strong>
-              </p>
-
-              <p className="text-[16px] leading-6 text-ink">
-                VOX therefore moves continuously between:
-              </p>
-
-              <p className="font-display text-[20px] leading-8 font-medium text-ink">
-                Research ↔ Design ↔ Prototyping ↔ Systems
+                Findings are documented and, where useful, developed into{" "}
+                <strong className="text-ink">
+                  principles and patterns for the VOX System.
+                </strong>
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Built through practice */}
+      {/* What VOX represents */}
       <section className="border-t hairline py-12 pb-20">
         <Container>
           <div className="max-w-4xl">
             <h2 className="text-[16px] font-medium text-ink">
-              Built through practice
+              What VOX represents
             </h2>
 
             <div className="mt-8 space-y-8">
               <p className="text-[16px] leading-6 text-ink-soft">
-                VOX is an evolving body of work, not a finished methodology.
-              </p>
-
-              <p className="text-[16px] leading-6 text-ink-soft">
-                The goal is to move beyond <em>“voice feels natural”</em> and
-                develop a more rigorous understanding of{" "}
-                <strong>
-                  what makes spoken interactions understandable, useful,
-                  expressive, and trustworthy.
+                VOX is{" "}
+                <strong className="text-ink">
+                  not a product or commercial platform.
                 </strong>
               </p>
 
-              <p className="font-display text-[16px] leading-8 font-medium text-ink">
-                The interface is changing.
-                <br />
-                VOX is exploring what design needs to become with it.
+              <p className="text-[16px] leading-6 text-ink-soft">
+                It is an evolving body of design research and a framework for
+                designing voice AI.
+              </p>
+
+              <p className="font-display text-[20px] leading-8 font-medium text-ink">
+                Research → Framework → Practice
               </p>
             </div>
           </div>
