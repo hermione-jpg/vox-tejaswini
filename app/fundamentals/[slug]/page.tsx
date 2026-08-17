@@ -12,35 +12,41 @@ import {
   getFundamentalGroups,
 } from "@/lib/getFundamentals";
 
+type PageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
 export async function generateStaticParams() {
   const slugs = await getFundamentalSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const lesson = await getFundamental(params.slug);
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+
+  const lesson = await getFundamental(slug);
 
   return {
     title: lesson ? `${lesson.title} — VOX` : "VOX",
   };
 }
 
-export default async function LessonPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const lesson = await getFundamental(params.slug);
+export default async function LessonPage({ params }: PageProps) {
+  const { slug } = await params;
 
-  if (!lesson) return notFound();
+  const lesson = await getFundamental(slug);
 
-  const source = await getFundamentalContent(params.slug);
+  if (!lesson) {
+    notFound();
+  }
 
-  if (!source) return notFound();
+  const source = await getFundamentalContent(slug);
+
+  if (!source) {
+    notFound();
+  }
 
   const { content } = await compileMDX({
     source,
@@ -55,20 +61,18 @@ export default async function LessonPage({
 
   return (
     <div className="flex min-h-screen bg-white">
-
       {/* SIDEBAR */}
-      <aside className="hidden md:block w-[260px] bg-white border-r border-[#9A9A9A] sticky top-0 h-screen">
-        <div className="h-full overflow-y-auto px-6 py-6 text-[14px] leading-[20px] text-[#2F3E46] relative">
-
+      <aside className="hidden md:block sticky top-0 h-screen w-[260px] border-r border-paper/20 bg-card">
+        <div className="relative h-full overflow-y-auto px-6 py-6 text-[14px] leading-[20px] text-ink">
           {/* VOX */}
-          <div className="text-[20px] font-semibold mb-6 tracking-tight">
+          <div className="mb-6 text-[20px] font-semibold tracking-tight text-ink">
             VOX
           </div>
 
           {/* GROUPS */}
           {groups.map((group) => (
             <div key={group} className="mb-8">
-              <p className="text-[11px] uppercase tracking-[0.12em] text-[#5C7C99] mb-3">
+              <p className="mb-3 text-[11px] uppercase tracking-[0.12em] text-ink-soft">
                 {group}
               </p>
 
@@ -79,10 +83,10 @@ export default async function LessonPage({
                     <li key={l.slug}>
                       <Link
                         href={`/fundamentals/${l.slug}`}
-                        className={`block pl-3 border-l ${
+                        className={`block border-l pl-3 ${
                           lesson.slug === l.slug
-                            ? "border-[#2F3E46] font-medium"
-                            : "border-transparent text-[#2F3E46]/80 hover:text-[#2F3E46]"
+                            ? "border-ink font-medium text-ink"
+                            : "border-transparent text-ink-soft hover:text-ink"
                         }`}
                       >
                         {l.navTitle}
@@ -97,16 +101,15 @@ export default async function LessonPage({
           <div className="absolute bottom-6 left-6 right-6">
             <Link
               href="/"
-              className="block text-center py-2 border border-[#2F3E46]/30 rounded-md text-[13px]"
+              className="block rounded-md border border-ink/30 py-2 text-center text-[13px] text-ink transition-colors hover:bg-paper/50"
             >
               Home
             </Link>
 
-            <p className="mt-4 text-[11px] text-[#2F3E46]/70">
+            <p className="mt-4 text-[11px] text-ink-soft">
               Last Updated - 31-07-2026
             </p>
           </div>
-
         </div>
       </aside>
 
@@ -114,7 +117,6 @@ export default async function LessonPage({
       <div className="flex-1 bg-white">
         <Container className="py-16">
           <article className="max-w-3xl text-[#2F3E46]">
-
             <p className="text-[11px] uppercase tracking-[0.12em] text-[#5C7C99]">
               {lesson.group}
             </p>
@@ -177,17 +179,18 @@ export default async function LessonPage({
             </div>
 
             {lesson.next && (
-              <div className="mt-20 pt-8 border-t border-[#9A9A9A]">
-                <Link href={`/fundamentals/${lesson.next.slug}`}>
+              <div className="mt-20 border-t border-[#9A9A9A] pt-8">
+                <Link
+                  href={`/fundamentals/${lesson.next.slug}`}
+                  className="text-ink hover:text-ink-soft"
+                >
                   Next — {lesson.next.title} →
                 </Link>
               </div>
             )}
-
           </article>
         </Container>
       </div>
-
     </div>
   );
 }

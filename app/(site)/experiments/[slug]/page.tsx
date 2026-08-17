@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 
 import Container from "@/components/Container";
-import { getCaseStudyContent, getCaseStudySlugs } from "@/lib/getCaseStudies";
-import { TalkAboutThisPage } from "@/components/case-study/TalkAboutThisPage";
+import { getExperimentContent, getExperimentSlugs } from "@/lib/getExperiments";
 
 type PageProps = {
   params: {
@@ -12,14 +11,14 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  const slugs = await getCaseStudySlugs();
+  const slugs = await getExperimentSlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function CaseStudyPage({
+export default async function ExperimentPage({
   params,
 }: PageProps) {
-  const source = await getCaseStudyContent(params.slug);
+  const source = await getExperimentContent(params.slug);
 
   if (!source) {
     notFound();
@@ -28,22 +27,24 @@ export default async function CaseStudyPage({
   const { content, frontmatter } = await compileMDX<{
     title?: string;
     description?: string;
-  }>({
-    source,
-    options: {
-      parseFrontmatter: true,
-    },
-  });
+  }>(
+    {
+      source,
+      options: {
+        parseFrontmatter: true,
+      },
+    }
+  );
 
   return (
     <main className="min-h-screen bg-white">
       <Container>
         <div className="max-w-3xl">
           <a
-            href="/case-study"
+            href="/experiments"
             className="font-mono text-[12px] leading-4 text-ink-faint hover:text-ink"
           >
-            ← Case Studies
+            ← Experiments
           </a>
 
           <header className="mt-12">
@@ -59,10 +60,6 @@ export default async function CaseStudyPage({
               </p>
             )}
           </header>
-
-          {params.slug === "voice-for-learn" && (
-            <TalkAboutThisPage slug={params.slug} />
-          )}
 
           <article
             className="
@@ -98,11 +95,6 @@ export default async function CaseStudyPage({
               [&_img]:max-w-full
               [&_img]:rounded-lg
 
-              /* GIF IMAGES */
-              [&_img[src$='.gif']]:!w-[480px]
-              [&_img[src$='.gif']]:!max-w-[480px]
-              [&_img[src$='.gif']]:mx-auto
-
               [&_ul]:mb-6
               [&_ul]:space-y-2
               [&_ul]:pl-5
@@ -118,6 +110,23 @@ export default async function CaseStudyPage({
               [&_blockquote]:text-[20px]
               [&_blockquote]:leading-7
               [&_blockquote]:text-ink
+
+              [&_table]:my-8
+              [&_table]:w-full
+              [&_table]:border-collapse
+
+              [&_th]:text-left
+              [&_th]:font-semibold
+              [&_th]:text-ink
+              [&_th]:border-b
+              [&_th]:border-ink-faint
+              [&_th]:pb-3
+              [&_th]:pt-3
+
+              [&_td]:text-ink-soft
+              [&_td]:border-b
+              [&_td]:border-ink-faint/30
+              [&_td]:py-3
             "
           >
             {content}

@@ -5,29 +5,67 @@
 
 export const siteConfig = {
   name: "VOX",
-    version: "Version .v1",
+  version: "Version .v1",
   author: "Tejaswini",
+
   figmaUrl:
     "https://www.figma.com/design/BLtl8zCWIbYKUEUo1nKtCv/Vox-%E2%80%94-Open-Design-System-for-Conversational---Voice-AI--Community-?m=auto&t=5kpgiMMFHrogYety-6",
+
   nav: [
-    { label: "Case Studies", href: "/case-study" },
-    { label: "Vox System", href: "/vox-system" },
-    { label: "Glossary", href: "/dict" },
-    { label: "Fundamentals", href: "/fundamentals" },
-    { label: "Overview", href: "/overview" },
+    // Beginner Section
+    {
+      label: "Fundamentals",
+      href: "/fundamentals",
+      section: "beginner",
+    },
+    {
+      label: "Glossary",
+      href: "/dict",
+      section: "beginner",
+    },
+    {
+      label: "VOX System",
+      href: "/vox-system",
+      section: "beginner",
+    },
+
+    // Intermediate Section
+    {
+      label: "Voice UX",
+      href: "/voice-ux",
+      section: "intermediate",
+    },
+
+    // Advanced Section
+    {
+      label: "Experiments",
+      href: "/experiments",
+      section: "advanced",
+    },
+
+    // Top-level
+    {
+      label: "Overview",
+      href: "/overview",
+      section: "overview",
+    },
   ],
 };
 
 export const homeCopy = {
   eyebrow: "VOX",
+
   heroVersion: "Version .v1",
+
   heroLines: [
     "Every conversation begins with a single moment.",
     "A question. A response. A pause. An interruption.",
     "Like a ripple across water, each interaction expands beyond its point of origin, influencing everything that follows.",
   ],
+
   heroClosing:
     "VOX was created from this observation. Rather than viewing voice as another interface element, it explores conversation as a living system — one shaped by timing, context, feedback, and continuous exchange.",
+
   heroFooterLine: "As the technology changes, the ripples continue.",
 
   versionSection: {
@@ -37,6 +75,7 @@ export const homeCopy = {
 
   conversationSection: {
     label: "Conversation as a System",
+
     lines: [
       "Traditional design systems were built for graphical interfaces.",
       "Voice interfaces operate through conversation, timing, memory, and context — requiring principles that extend beyond screens.",
@@ -46,7 +85,9 @@ export const homeCopy = {
 
   ripple: {
     label: "The Ripple Hypothesis",
+
     title: "Every conversation begins with a single moment.",
+
     lines: [
       "A question. A response. A pause. An interruption.",
       "Like a ripple across water, each interaction expands beyond its point of origin, influencing everything that follows.",
@@ -57,6 +98,7 @@ export const homeCopy = {
 
   explorative: {
     label: "Explorative Design",
+
     lines: [
       "The design system was not planned as a UI kit.",
       "It is emerging through continuous experimentation with layouts, interaction models, motion, color, typography, and conversational patterns. Every iteration challenged assumptions inherited from traditional interface design and explored new ways of representing conversation visually.",
