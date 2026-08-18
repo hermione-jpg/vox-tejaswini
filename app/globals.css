@@ -17,15 +17,17 @@ body {
 }
 
 .hairline {
-  border-color: rgba(145, 180, 203, 0.55); /* Color 4 @ ~55% */
+  border-color: rgba(145, 180, 203, 0.55);
 }
 
 /* Underline-on-hover link style used across the site */
+
 .link-quiet {
   position: relative;
   color: #364d5c;
   text-decoration: none;
 }
+
 .link-quiet::after {
   content: "";
   position: absolute;
@@ -38,22 +40,26 @@ body {
   transform-origin: right;
   transition: transform 0.3s ease;
 }
+
 .link-quiet:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
 
-/* Ripple animation used in the hero (references the "Ripple Hypothesis") */
+/* Ripple animation used in the hero */
+
 @keyframes ripple {
   0% {
     transform: scale(0.9);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(2.4);
     opacity: 0;
   }
 }
+
 .ripple-ring {
   position: absolute;
   inset: 0;
@@ -66,4 +72,33 @@ body {
   .ripple-ring {
     animation: none;
   }
+}
+
+/* Experiment CTA */
+
+.experiment-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background-color: #55798f;
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+
+  transition: opacity 0.2s ease;
+}
+
+.experiment-cta:hover {
+  opacity: 0.9;
+}
+
+.experiment-cta span {
+  color: #ffffff !important;
 }

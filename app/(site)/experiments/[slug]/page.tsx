@@ -1,24 +1,52 @@
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
+import type { ReactNode } from "react";
 
 import Container from "@/components/Container";
-import { getExperimentContent, getExperimentSlugs } from "@/lib/getExperiments";
+import {
+  getExperimentContent,
+  getExperimentSlugs,
+} from "@/lib/getExperiments";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
+
+type CTAProps = {
+  href: string;
+  children: ReactNode;
+};
+
+function CTA({ href, children }: CTAProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-10 inline-flex items-center gap-10 rounded-md bg-[#55798f] px-5 py-3 text-[16px] font-medium !text-white no-underline transition-opacity hover:opacity-90"
+    >
+      <span className="!text-white">{children}</span>
+      <span className="text-[20px] leading-none !text-white">›</span>
+    </a>
+  );
+}
 
 export async function generateStaticParams() {
   const slugs = await getExperimentSlugs();
-  return slugs.map((slug) => ({ slug }));
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
 export default async function ExperimentPage({
   params,
 }: PageProps) {
-  const source = await getExperimentContent(params.slug);
+  const { slug } = await params;
+
+  const source = await getExperimentContent(slug);
 
   if (!source) {
     notFound();
@@ -27,14 +55,15 @@ export default async function ExperimentPage({
   const { content, frontmatter } = await compileMDX<{
     title?: string;
     description?: string;
-  }>(
-    {
-      source,
-      options: {
-        parseFrontmatter: true,
-      },
-    }
-  );
+  }>({
+    source,
+    options: {
+      parseFrontmatter: true,
+    },
+    components: {
+      CTA,
+    },
+  });
 
   return (
     <main className="min-h-screen bg-white">
@@ -88,7 +117,6 @@ export default async function ExperimentPage({
               [&_p]:leading-6
               [&_p]:text-ink-soft
 
-              /* NORMAL IMAGES */
               [&_img]:my-10
               [&_img]:h-auto
               [&_img]:w-full
@@ -115,18 +143,18 @@ export default async function ExperimentPage({
               [&_table]:w-full
               [&_table]:border-collapse
 
-              [&_th]:text-left
-              [&_th]:font-semibold
-              [&_th]:text-ink
               [&_th]:border-b
               [&_th]:border-ink-faint
               [&_th]:pb-3
               [&_th]:pt-3
+              [&_th]:text-left
+              [&_th]:font-semibold
+              [&_th]:text-ink
 
-              [&_td]:text-ink-soft
               [&_td]:border-b
               [&_td]:border-ink-faint/30
               [&_td]:py-3
+              [&_td]:text-ink-soft
             "
           >
             {content}

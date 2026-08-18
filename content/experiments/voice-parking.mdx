@@ -1,0 +1,341 @@
+---
+title: Voice Agent for Parking
+description: Exploring how voice agents can reduce friction at parking entry.
+image: /images/case%20studies/voxpark.png
+order: 1
+---
+
+A voice-first parking experience that lets drivers handle parking while they keep moving.
+
+Parking is a series of small decisions, checks, and waiting moments-all happening while the driver is still moving.
+
+## Can voice handle the parking interaction while the driver keeps moving?
+
+**Role** -     Product Designer, Conversation Designer, Builder  
+**Duration** - 1 week  
+**Tools** -    Figma, Next.js, React, TypeScript, ElevenLabs, Vercel, Cursor  
+**Status** -   Working prototype, Concept validation
+
+---
+
+## The Experiment
+
+I wanted to explore a simple idea:
+
+> **What if you didn't have to stop to park?**
+
+The experiment explores how vehicle detection, parking availability, booking, payment, and navigation could work together through a voice-first interaction.
+
+<video
+  src="/videos/voxpark.mp4"
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    borderRadius: "16px",
+  }}
+/>
+
+
+<a
+  href="https://voxpark-ra15.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="experiment-cta"
+>
+  <span>Try the interactive demo</span>
+  <span>›</span>
+</a>
+.
+
+---
+
+## The Problem
+
+![news](/images/case%20studies/news1.png)
+
+![news](/images/case%20studies/news2.png)
+
+Parking gets complicated at the entrance.
+
+Finding availability, verifying a vehicle, making a booking, and waiting for the system to respond can turn a simple entry into a series of small interruptions.
+
+But the articles only made me look closer at the problem.
+
+### The Observation
+
+I started looking at what happens during those interruptions.
+
+The interesting problem wasn't parking itself. It was everything happening **while the driver is trying to enter**.
+
+The driver is moving.
+
+The camera is detecting.
+
+The system is checking availability.
+
+A booking may need to happen.
+
+Payment may need to be completed.
+
+The system is working in the background — but the driver is still expected to interact with it.
+
+That became the opportunity I wanted to explore.
+
+---
+
+## Mapping the Experience
+
+Before designing the conversation, I mapped everything that would need to work together to complete the parking experience -from the moment the vehicle enters to the moment it leaves.
+
+![IA](/images/case%20studies/IA.png)
+
+I started thinking about the experience through three layers:
+
+**Driver**  
+What does the driver need to do?
+
+**System**  
+What does the parking system need to know or update?
+
+**Conversation**  
+What actually needs to be spoken, and when?
+
+This helped me move from thinking about a "voice assistant" to thinking about a **conversational parking system**.
+
+---
+
+## Experience Flow
+
+![experience](/images/case%20studies/experience.png)
+
+The experience became a continuous loop between the driver, the interface, and the parking system:
+
+The driver keeps moving while the system handles the work underneath.
+
+---
+
+## Designing the Conversation
+
+Once the overall experience was mapped, I broke it into conversational flows.
+
+The first flow focused on 
+**Vehicle detection → Session → Availability → Spot selection → Booking → Navigation**
+
+The second explored I explored three exit conditions rather than assuming every parking session ends the same way:
+**prepaid ontime. prepaid overstay. postpaid**
+
+![flow](/images/case%20studies/flow1.png)
+
+![flow](/images/case%20studies/flow2.png)
+
+The flows forced me to think beyond what the agent should say.
+The conversation is only the visible layer. Underneath it is a set of tools that give the agent access to the real state of the parking session.
+
+For every response, I had to ask:
+
+**What does the system know right now?**
+
+**What is happening in the background?**
+
+**Does the driver actually need to respond?**
+
+**What happens if something goes wrong?**
+
+This is where the conversation started becoming a system rather than a script.
+
+---
+
+## Voice Is More Than Words
+
+I soon realised that words weren't the only thing I was designing.
+
+I was designing **how the words arrived**.
+
+Speed, pause length, response length, acknowledgement timing, and pronunciation all changed how the agent felt.
+
+![table](/images/case%20studies/table.png)
+
+A shorter response could feel more natural.
+
+A small pause could make the agent feel less immediate and robotic.
+
+An acknowledgement could make a backend delay feel intentional instead of broken.
+
+The voice itself became another interaction layer to design.
+
+---
+
+## Constraints
+
+I deliberately kept the experiment within a few boundaries.
+
+**Prototype scope**  
+Real parking infrastructure isn't connected.
+
+**Vehicle detection**  
+Simulated rather than connected to a live ANPR system.
+
+**Payment**  
+Represented through the mobile interface rather than voice.
+
+**Voice latency**  
+Responses can't always be instantaneous.
+
+These constraints helped keep the experiment focused on the **interaction model**, rather than trying to build an entire parking infrastructure system.
+
+---
+
+## Assumptions
+
+To explore a realistic version of the experience, I assumed the eventual system could connect to:
+
+- An ANPR/LPR system at the parking entrance
+- A parking backend exposing live availability
+- A QR-based mobile session
+- Vehicle and user identification
+- Reservation and payment services
+- Parking sensors or cameras for occupancy
+
+These weren't implemented as real infrastructure in the prototype. They defined the system the interaction was being designed around.
+
+---
+
+## What Broke
+
+The prototype became more interesting once things stopped working perfectly.
+
+### 01 — Voice quality
+
+Some responses sounded too robotic or overly formal.
+
+**I changed:**  
+Response length, pacing, pauses, and phrasing.
+
+---
+
+### 02 — Pronunciation
+
+Vehicle numbers and spoken time values didn't always sound natural.
+
+**I changed:**  
+How certain values were formatted and presented to the voice model.
+
+---
+
+### 03 — Latency
+
+Tool/API responses created periods of silence.
+
+Some flows also became too verbose while trying to explain what the system was doing.
+
+**I changed:**  
+Added short acknowledgement/progress feedback and removed information that didn't need to be spoken.
+
+This was one of the more useful discoveries of the experiment:
+
+> **Waiting isn't outside the conversation. Waiting is part of the conversation.**
+
+---
+
+## Making the Prototype Testable
+
+I didn't want the demo to only work on the happy path.
+
+Because real parking infrastructure wasn't connected, I added demo controls that let me manipulate the parking state and test different outcomes.
+
+### Demo Controls
+
+**New ticket / Reset session**  
+Restarts the parking journey from entry.
+
+**Vehicle type selector**  
+Tests the flow with a car, bike, or randomly assigned vehicle.
+
+**Lot full**  
+Simulates a capacity failure before the driver enters.
+
+### Exit scenarios
+
+I also added controls specifically for testing what happens **after parking**.
+
+**Prepaid + overstay**  
+Simulates a driver who paid upfront but stayed longer than planned.
+
+This tests whether the agent can use a tool call to retrieve and communicate the additional amount rather than assuming the prepaid amount is always final.
+
+**Postpaid + completed parking**  
+Simulates a driver who chose to pay at exit.
+
+This tests a journey where the final amount isn't known when the driver enters.
+
+**Prepaid + on-time exit**  
+Simulates the simplest successful exit.
+
+These controls turned the prototype from a single scripted journey into something I could use to test **different system states and exit conditions**.
+
+---
+
+## What Could This Become?
+
+The prototype currently simulates the parking infrastructure underneath the experience.
+
+A real implementation could connect the conversational layer to existing parking systems:
+
+**ANPR / LPR**  
+Vehicle identification
+
+↓
+
+**Parking APIs**  
+Live availability and reservations
+
+↓
+
+**Agent tools**  
+Availability, booking, cancellation, session and payment actions
+
+↓
+
+**Payment infrastructure**  
+Real-time checkout and overstay handling
+
+↓
+
+**Parking sensors / cameras**  
+Spot-level occupancy and arrival verification
+
+↓
+
+**Navigation**  
+Guidance to the assigned space
+
+The opportunity isn't to replace the parking system with an AI agent.
+
+It is to make the conversational layer **work with the systems that already know what is happening**.
+
+---
+
+## What I Took Away
+
+### Voice isn't the interface. It's part of the system.
+
+The experience only works when voice, UI, backend state, and physical infrastructure work together.
+
+### Conversation starts with system logic.
+
+Before deciding what the agent should say, I had to understand what the system knew, what it was doing, and what could happen next.
+
+### Latency became a design material.
+
+I couldn't eliminate every wait, so I learned to design what the user hears and sees while the system is working.
+
+### The opportunity isn't "adding AI to parking."
+
+It's removing unnecessary moments where the driver has to stop, look, tap, and wait — and letting the system handle more of the journey in the background.
+
+> **I started by asking whether voice could make parking easier. I ended up exploring how voice can bridge the gap between a moving driver and a system that keeps working around them.**
+
+.
+.
+.
