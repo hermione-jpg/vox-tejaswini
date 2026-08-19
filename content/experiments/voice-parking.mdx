@@ -4,12 +4,11 @@ description: Exploring how voice agents can reduce friction at parking entry.
 image: /images/case%20studies/voxpark.png
 order: 1
 ---
-
-A voice-first parking experience that lets drivers handle parking while they keep moving.
-
+## Overview
 Parking is a series of small decisions, checks, and waiting moments-all happening while the driver is still moving.
 
-## Can voice handle the parking interaction while the driver keeps moving?
+VoxPark is a voice-first parking experience that lets drivers handle parking while they keep moving.
+
 
 **Role** -     Product Designer, Conversation Designer, Builder  
 **Duration** - 1 week  
@@ -21,13 +20,12 @@ Parking is a series of small decisions, checks, and waiting moments-all happenin
 ## The Experiment
 
 I wanted to explore a simple idea:
-
-> **What if you didn't have to stop to park?**
+## Can voice handle the parking interaction while the driver keeps moving?
 
 The experiment explores how vehicle detection, parking availability, booking, payment, and navigation could work together through a voice-first interaction.
 
 <video
-  src="/videos/voxpark.mp4"
+  src="/videos/main.mp4"
   controls
   playsInline
   style={{
@@ -53,6 +51,7 @@ The experiment explores how vehicle detection, parking availability, booking, pa
 ## The Problem
 
 ![news](/images/case%20studies/news1.png)
+source: IndianExpress
 
 ![news](/images/case%20studies/news2.png)
 
@@ -255,6 +254,16 @@ Tests the flow with a car, bike, or randomly assigned vehicle.
 **Lot full**  
 Simulates a capacity failure before the driver enters.
 
+<video
+  src="/videos/full.mp4"
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    borderRadius: "16px",
+  }}
+/>
+.
 ### Exit scenarios
 
 I also added controls specifically for testing what happens **after parking**.
@@ -263,6 +272,16 @@ I also added controls specifically for testing what happens **after parking**.
 Simulates a driver who paid upfront but stayed longer than planned.
 
 This tests whether the agent can use a tool call to retrieve and communicate the additional amount rather than assuming the prepaid amount is always final.
+<video
+  src="/videos/overstay.mp4"
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    borderRadius: "16px",
+  }}
+/>
+.
 
 **Postpaid + completed parking**  
 Simulates a driver who chose to pay at exit.
@@ -273,7 +292,16 @@ This tests a journey where the final amount isn't known when the driver enters.
 Simulates the simplest successful exit.
 
 These controls turned the prototype from a single scripted journey into something I could use to test **different system states and exit conditions**.
-
+<video
+  src="/videos/ontime.mp4"
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    borderRadius: "16px",
+  }}
+/>
+.
 ---
 
 ## What Could This Become?
