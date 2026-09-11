@@ -1,0 +1,97 @@
+---
+title: Designing for Human Behavior in Voice
+description: How voice agents should respond to hesitation, urgency, confusion, and conversational change.
+image: /images/case%20studies/voxname.png
+order: 5
+---
+You ask your friend a simple question.
+
+**“Are we leaving at 7?”**
+
+They pause.
+
+“Umm… yeah. I think so.”
+You notice the hesitation and plan to leave late as well.
+
+Now imagine they answer quickly:
+
+**“Yeah, definitely. We need to leave at 7.”**
+
+You notice the confidence and hurry as well.
+
+We constantly pick up on these small changes when we talk to people.
+
+A pause tells us someone might still be thinking.
+
+A rushed answer tells us they might be in a hurry.
+
+A repeated question tells us they may not have understood.
+
+An interruption can tell us we're taking too long.
+
+A suddenly short response can tell us they're losing patience.
+
+A voice agent that only understands the words has understood only part of the interaction.
+
+## Can a voice interface recognize changes in human behavior and adapt its interaction accordingly?
+
+Voice interaction has a problem visual interfaces largely avoid:
+
+In a visual UI, uncertainty might produce a pause before clicking. 
+In voice, the user's behavior is part of the interface.
+
+- “umm…”
+- “wait”
+- repeated words
+- slower speech
+- rising/falling pitch
+- unfinished sentences
+- corrections
+- silence
+- talking over the agent
+- asking the same thing again
+- abandoning the conversation
+
+These aren't merely _speech characteristics_. They are **interaction signals**.
+
+Designing adaptive voice experiences requires looking beyond speech recognition.
+
+The system needs to observe these signals in three dimensions simultaneously:
+
+**What was said.  
+How it was said.  
+What has been happening in the conversation.**
+
+These become the three lenses for understanding behavioral state:
+### Acoustic
+
+The physical characteristics of speech: How the speech sounds.
+
+**pace · pauses · pitch · energy · silence · overlap · response timing**
+
+### Linguistic
+
+The structure and content of language:
+
+**fillers · repetitions · corrections · uncertainty markers · imperatives · questions · negations**
+
+### Conversational
+
+What is happening between turns:
+
+**failed attempts · interruptions · repetition · repair · turn length · task progress · unanswered questions · abandonment**
+
+None of these signals tells us exactly what a person is feeling.
+
+Instead, together they provide **evidence about how the interaction is going**.
+
+## Mapping Human Signals → Agent Behavior
+
+This creates a different way of thinking about voice interaction.
+
+Instead of designing:
+
+**User says X → Agent says Y**
+
+we need to analyze: 
+

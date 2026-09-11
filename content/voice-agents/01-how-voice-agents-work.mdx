@@ -1,0 +1,108 @@
+---
+title: "Rethinking the UX of Voice-Agent Platforms"
+navTitle: "Rethinking the UX of Voice-Agent Platforms"
+kicker: "The UX of building something you can't see, can't reliably predict, and have to hear to understand."
+order: 1
+---
+
+You open a voice-agent platform.
+
+You want to build voice agent for your business:
+
+> “Answer incoming calls, understand what the customer needs, collect a few details, and transfer them to a human when necessary.”
+
+Sounds simple.
+
+Then you open the interface.
+![lifecycle](/images/fundamentals/lifecycle.png)
+You start choosing models, voices, prompts, tools, variables, workflows and rules.
+ 
+Eventually, you have a working agent.
+
+But getting an agent to work doesnt always ensure desired outcome. You need to understand underlying behaviour and be able to configure desired outcome.
+
+And that is where the UX problem begins.
+
+## From configuration to development
+
+Traditional software configuration often follows a relatively straightforward path:
+
+**Choose → Configure → Save → Use**
+
+Voice agents are different.
+
+You configure something.
+
+Then you **talk to it.**
+
+The conversation reveals behaviour you couldn't fully predict from the configuration alone.
+
+You find a problem, change something, and test again.
+
+Then another conversation reveals something else.
+
+The builder's journey looks more like:
+![user journey](/images/fundamentals/userj.png)
+It's a feedback loop, not a linear configuration flow.
+
+The platform therefore needs to help builders understand what happened, why it happened, and what to change at every step.
+
+
+
+## Design for the job, not the configuration
+
+A builder doesn't wake up wanting to select an LLM,configure STT, set interruption thresholds.
+Those are implementation details.
+
+Their actual goal is something much simpler:
+
+> **“I need this agent to successfully qualify a customer.”**
+
+The interface should therefore start from the job the builder is trying to accomplish, not from everything the system is capable of configuring.
+The shift is from:
+
+**Configuration-first → Workflow-first**
+
+And once the agent is being tested, another problem appears:
+
+## The invisible interface problem
+
+With traditional software, you can see much of what you're designing.
+
+With a voice agent, the real interface is the **conversation.**
+
+You don't fully understand what you've built until you interact with it.
+
+The **builder** configures a behaviour.
+
+The **caller** experiences that behaviour.
+
+The platform has to connect the two and enable desired behaviour is achieved.
+
+You change a prompt. Suddenly the response changes.
+The tool fails.
+The caller interrupts.
+
+When something goes wrong, the builder has to be able to connect the dots:
+
+**Behaviour → Evidence → Cause → Change**
+
+The platform needs to make those connections visible.
+
+That means designing how users discover problems, understand behaviour, decide what to change, and know whether the change worked.
+
+The interface is only one part of that experience.
+
+The larger design problem is the **feedback loop around the agent.**
+## So, what could a platform do differently?
+
+- **Design around outcomes**: Start with what the builder is trying to achieve, not what the system can configure.
+- **Make behaviour visible**: Connect what the builder changed to what the agent actually did.
+- **Progressive Disclosure:** Reveal complexity when it becomes relevant.
+- **Guide the next step**: Make it clear what the builder should do next and why.
+- **Close the feedback loop**: Make it easy to test → understand → change → test again.
+
+The goal isn't to make the builder understand the entire system. 
+
+It's to help them move from **business intention to reliable voice behaviour** without having to become an expert in everything underneath it.
+

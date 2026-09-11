@@ -63,7 +63,6 @@ export default function SiteSidebar() {
       className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-[13px] font-medium text-ink transition-all hover:bg-paper/50"
     >
       <span>{label}</span>
-
       <span
         className={`text-[11px] transition-transform ${
           expandedSections[section] ? "rotate-180" : ""
@@ -78,14 +77,11 @@ export default function SiteSidebar() {
     <>
       {/* Desktop Sidebar */}
       <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:flex md:w-[260px] md:flex-col md:overflow-y-auto md:bg-card md:px-8 md:py-14">
-        {/* VOX Logo + Description */}
+        {/* VOX Logo */}
         <Link href="/" className="block text-center">
-          <span
-            className={`${krona.className} block text-[28px] text-ink`}
-          >
+          <span className={`${krona.className} block text-[28px] text-ink`}>
             VOX
           </span>
-
           <span className="mt-2 block text-[11px] leading-4 text-ink">
             A framework for designing
             <br />
@@ -97,78 +93,45 @@ export default function SiteSidebar() {
         <nav className="mt-12 flex flex-col gap-0.5">
           {/* BEGINNER */}
           <div>
-            <SectionHeader
-              label="Beginner"
-              section="beginner"
-            />
-
+            <SectionHeader label="Beginner" section="beginner" />
             {expandedSections.beginner && (
               <div className="ml-2 flex flex-col gap-1 border-l border-paper/30 py-1 pl-3">
-                <NavLink
-                  label="Fundamentals"
-                  href="/fundamentals"
-                />
-
-                <NavLink
-                  label="Glossary"
-                  href="/dict"
-                />
-
-                <NavLink
-                  label="VOX System"
-                  href="/vox-system"
-                />
+                <NavLink label="Fundamentals" href="/fundamentals" />
+                <NavLink label="Glossary" href="/dict" />
+                <NavLink label="VOX System" href="/vox-system" />
               </div>
             )}
           </div>
 
           {/* INTERMEDIATE */}
           <div className="mt-3">
-            <SectionHeader
-              label="Intermediate"
-              section="intermediate"
-            />
-
+            <SectionHeader label="Intermediate" section="intermediate" />
             {expandedSections.intermediate && (
               <div className="ml-2 flex flex-col gap-1 border-l border-paper/30 py-1 pl-3">
-                <NavLink
-                  label="Voice UX"
-                  href="/voice-ux"
-                />
+                <NavLink label="Voice UX" href="/voice-ux" />
               </div>
             )}
           </div>
 
           {/* ADVANCED */}
           <div className="mt-3">
-            <SectionHeader
-              label="Advanced"
-              section="advanced"
-            />
-
+            <SectionHeader label="Advanced" section="advanced" />
             {expandedSections.advanced && (
               <div className="ml-2 flex flex-col gap-1 border-l border-paper/30 py-1 pl-3">
-                <NavLink
-                  label="Experiments"
-                  href="/experiments"
-                />
+                <NavLink label="Voice Agents" href="/voice-agents" />
+                <NavLink label="Experiments" href="/experiments" />
               </div>
             )}
           </div>
 
           {/* OVERVIEW */}
           <div className="mt-4 border-t border-paper/20 pt-4">
-            <NavLink
-              label="Overview"
-              href="/overview"
-            />
+            <NavLink label="Overview" href="/overview" />
           </div>
         </nav>
 
-        {/* Flexible space */}
         <div className="flex-1" />
 
-        {/* Last Updated */}
         <p className="text-center font-mono text-[10px] text-ink-soft">
           Last Updated - 17-08-2026
         </p>
@@ -176,18 +139,14 @@ export default function SiteSidebar() {
 
       {/* Mobile Header */}
       <header className="sticky top-0 z-40 border-b hairline bg-card/95 backdrop-blur md:hidden">
-        {/* Mobile Logo */}
         <div className="flex h-14 items-center justify-center px-5">
           <Link href="/" className="text-center">
-            <span
-              className={`${krona.className} block text-[21px] text-ink`}
-            >
+            <span className={`${krona.className} block text-[21px] text-ink`}>
               VOX
             </span>
           </Link>
         </div>
 
-        {/* Mobile Navigation */}
         <nav className="flex gap-5 overflow-x-auto px-5 pb-3">
           <Link
             href="/fundamentals"
@@ -220,6 +179,17 @@ export default function SiteSidebar() {
             }`}
           >
             Voice UX
+          </Link>
+
+          <Link
+            href="/voice-agents"
+            className={`whitespace-nowrap text-[12px] ${
+              isActive("/voice-agents")
+                ? "font-medium text-ink"
+                : "text-ink-faint"
+            }`}
+          >
+            Voice Agents
           </Link>
 
           <Link
