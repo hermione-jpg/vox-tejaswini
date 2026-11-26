@@ -1,0 +1,187 @@
+---
+title: "Designing for Lost Cards in Banking"
+navTitle: "Applying Conversation Interaction Design principles to a lost-card banking scenario."
+kicker: "How should a voice assistant interpret numbers, units and quantities when a farmer speaks in Hindi and English?"
+order: 1
+---
+
+
+Applying Conversation Interaction Design principles to a high-stakes banking interaction.
+
+## Context
+
+A lost or stolen card requires immediate action. The member needs to secure their account immediately, understand whether their card is still usable, check for suspicious transactions or request a replacement.
+
+This exploration applies Conversation Interaction Design (CID) principles to a lost-card scenario, examining how user intent, conversation flow, agent behaviour and system actions work together.
+
+## 1. User Context
+
+The user is an existing bank member who needs assistance with a missing, lost or stolen debit or credit card.
+
+### The user's situation
+
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+  <div className="border border-[var(--border)] rounded-xl p-6 text-center">
+    **Uncertainty**
+
+    They may not know whether the card is misplaced, stolen or already being used.
+  </div>
+
+  <div className="border border-[var(--border)] rounded-xl p-6 text-center">
+    **Urgency**
+
+    They want to prevent potential misuse and secure their account quickly.
+  </div>
+
+  <div className="border border-[var(--border)] rounded-xl p-6 text-center">
+    **Limited information**
+
+    They may not have their card details or remember which card is affected.
+  </div>
+
+  <div className="border border-[var(--border)] rounded-xl p-6 text-center">
+    **Anxiety**
+
+    They may be worried about their money, account security and financial loss.
+  </div>
+</div>
+
+### What the user needs
+
+<div className="space-y-3 my-6">
+  <div className="flex gap-4 items-start border-b border-[var(--border)] pb-3">
+    <span className="text-lg opacity-60">01</span>
+    <div>
+      **Immediate assistance**
+
+      A straightforward way to report the missing card and initiate protection.
+    </div>
+  </div>
+  <div className="flex gap-4 items-start border-b border-[var(--border)] pb-3">
+    <span className="text-lg opacity-60">02</span>
+    <div>
+      **Clarity**
+
+      A clear understanding of available options and what happens after each action.
+    </div>
+  </div>
+  <div className="flex gap-4 items-start border-b border-[var(--border)] pb-3">
+    <span className="text-lg opacity-60">03</span>
+    <div>
+      **Confidence**
+
+      Confidence that the bank is following the right security procedures and verifying consequential actions.
+    </div>
+  </div>
+  <div className="flex gap-4 items-start">
+    <span className="text-lg opacity-60">04</span>
+    <div>
+      **Control**
+
+      The ability to clarify their situation, make informed decisions and confirm actions.
+    </div>
+  </div>
+</div>
+
+## 2. Scope of the Experience
+
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+  <div className="border border-[var(--border)] rounded-xl p-5 text-center">
+    **In Scope**
+
+    - Identify lost, stolen or misplaced cards
+    - Authenticate the member
+    - Lock or block a card
+    - Initiate replacement requests
+    - Share delivery timelines and request status
+  </div>
+
+  <div className="border border-[var(--border)] rounded-xl p-5 text-center">
+    **Out of Scope**
+
+    - Investigate disputed transactions
+    - Determine fraud liability
+    - Reverse transactions or issue refunds
+    - Override security requirements
+    - Handle complex fraud cases independently
+  </div>
+</div>
+
+## 3. Agent's Identity & Behaviour
+
+### Agent Identity
+
+**Role:**  Sophie is NorthStar Bank's AI voice assistant and the first point of contact for members seeking banking support.
+
+Sophie helps members find information, understand their options and complete supported banking tasks through natural conversation. When a request falls outside its capabilities, it guides the member to the appropriate support.
+
+### Tone & Personality
+
+Sophie communicates like a knowledgeable Advisor: approachable, composed and dependable.
+
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Warm & respectful**
+
+    Treat members with patience and acknowledge their concerns without excessive reassurance.
+  </div>
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Calm**
+
+    Maintain a steady, composed manner, especially during stressful or sensitive situations.
+  </div>
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Plain-spoken**
+
+    Use everyday language, short sentences and familiar terms. Explain banking terminology when first introduced.
+  </div>
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Direct & honest**
+
+    Be clear about what you know, what you can do and where your capabilities end. Never guess or promise an outcome you cannot guarantee.
+  </div>
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Situation-aware**
+
+    Adapt communication to the member's circumstances. Avoid humour during distressing situations.
+  </div>
+  <div className="border-2 border-[var(--border)] rounded-xl p-5">
+    **Sensitive to context**
+
+    Avoid exclamation marks when discussing financial problems, lost cards or suspected fraud.
+  </div>
+</div>
+
+## 4. Sample Dialog Flows
+
+![Conversation Flow](/images/case%20studies/D2.png)
+
+### System Behaviour
+
+The dialogue demonstrates how NorthStar handles a lost-card interaction. Each component of the experience needs a defined execution approach, particularly when actions affect account security.
+
+![System Flow](/images/case%20studies/D3.png)
+
+## 5. Decision Flow
+
+It maps key decision points, confirmation steps, system actions and escalation paths, showing how the conversation moves from identifying the issue to blocking the card, arranging a replacement or connecting the member to human support.
+
+![Decision Flow](/images/case%20studies/d4.png)
+
+### Escalation Triggers
+
+The bot transfers the interaction to human support when:
+
+- **Suspected fraud:** The member reports an unauthorised transaction or suspicious account activity.
+- **Authentication failure:** The member cannot complete identity verification.
+- **Account takeover:** The member suspects their account or credentials have been compromised.
+- **System failure:** A card-blocking or replacement action fails.
+- **Repeated misunderstanding:** The bot cannot reliably understand or resolve the member's request.
+- **Member request:** The member explicitly asks to speak with a human agent.
+- **Out-of-scope request:** The issue requires investigation, specialist judgement or intervention beyond the bot's capabilities.
+
+## Conclusion
+
+Designing a voice experience for a lost card is not simply about helping someone block a card. It is about guiding a member through a stressful situation with clarity, control and confidence.
+
+The key takeaway is that a good banking voice experience is not one that tries to handle everything. It is one that knows what it can do, communicates its limitations clearly and helps the member reach the right outcome with minimal effort.

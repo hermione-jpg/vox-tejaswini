@@ -59,7 +59,7 @@ Parking gets complicated at the entrance.
 
 Finding availability, verifying a vehicle, making a booking, and waiting for the system to respond can turn a simple entry into a series of small interruptions.
 
-But the articles only made me look closer at the problem.
+I started looking closely at the underlying problems.
 
 ### The Observation
 
@@ -121,8 +121,8 @@ Once the overall experience was mapped, I broke it into conversational flows.
 The first flow focused on 
 **Vehicle detection → Session → Availability → Spot selection → Booking → Navigation**
 
-The second explored I explored three exit conditions rather than assuming every parking session ends the same way:
-**prepaid ontime. prepaid overstay. postpaid**
+ I explored three exit conditions rather than assuming every parking session ends the same way:
+**Prepaid ontime. Prepaid overstay. Postpaid**
 
 ![flow](/images/case%20studies/flow1.png)
 
@@ -189,12 +189,17 @@ These constraints helped keep the experiment focused on the **interaction model*
 
 To explore a realistic version of the experience, I assumed the eventual system could connect to:
 
-- An ANPR/LPR system at the parking entrance
-- A parking backend exposing live availability
-- A QR-based mobile session
-- Vehicle and user identification
-- Reservation and payment services
-- Parking sensors or cameras for occupancy
+-An ANPR/LPR system at the parking entrance
+
+-A parking backend exposing live availability
+
+-A QR-based mobile session
+
+-Vehicle and user identification
+
+-Reservation and payment services
+
+-Parking sensors or cameras for occupancy
 
 These weren't implemented as real infrastructure in the prototype. They defined the system the interaction was being designed around.
 

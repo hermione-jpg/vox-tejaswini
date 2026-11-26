@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -118,7 +119,10 @@ export default function SiteSidebar() {
             <SectionHeader label="Advanced" section="advanced" />
             {expandedSections.advanced && (
               <div className="ml-2 flex flex-col gap-1 border-l border-paper/30 py-1 pl-3">
-                <NavLink label="Voice Agents" href="/voice-agents" />
+                <NavLink
+                  label="Conversation Design"
+                  href="/conversation-design"
+                />
                 <NavLink label="Experiments" href="/experiments" />
               </div>
             )}
@@ -182,14 +186,14 @@ export default function SiteSidebar() {
           </Link>
 
           <Link
-            href="/voice-agents"
+            href="/conversation-design"
             className={`whitespace-nowrap text-[12px] ${
-              isActive("/voice-agents")
+              isActive("/conversation-design")
                 ? "font-medium text-ink"
                 : "text-ink-faint"
             }`}
           >
-            Voice Agents
+            Conversation Design
           </Link>
 
           <Link

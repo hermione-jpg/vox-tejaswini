@@ -12,7 +12,7 @@ export interface VoiceAgentMeta {
   next?: { slug: string; title: string };
 }
 
-const DIR = path.join(process.cwd(), "content/voice-agents");
+const DIR = path.join(process.cwd(), "content/conversation-design");
 
 function readAllLessons(): VoiceAgentMeta[] {
   if (!fs.existsSync(DIR)) {

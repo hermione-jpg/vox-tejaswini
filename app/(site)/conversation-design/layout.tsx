@@ -1,8 +1,8 @@
+
 import Link from "next/link";
 import { siteConfig } from "@/content/site";
-import Footer from "@/components/Footer";
 
-export default function VoiceAgentsLayout({
+export default function ConversationDesignLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -25,8 +25,6 @@ export default function VoiceAgentsLayout({
       </header>
 
       {children}
-
-      <Footer />
     </>
   );
 }
